@@ -28825,6 +28825,16 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
+	var _reactRedux = __webpack_require__(254);
+
+	var _SignIn = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"SignIn\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+
+	var _SignIn2 = _interopRequireDefault(_SignIn);
+
+	var _AccountInfo = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"AccountInfo\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+
+	var _AccountInfo2 = _interopRequireDefault(_AccountInfo);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -28845,14 +28855,13 @@
 	  _createClass(Account, [{
 	    key: 'render',
 	    value: function render() {
+	      var username = this.props.username;
+
+	      var xhtml = username === null ? _react2.default.createElement(_SignIn2.default, null) : _react2.default.createElement(_AccountInfo2.default, null);
 	      return _react2.default.createElement(
 	        'div',
 	        null,
-	        _react2.default.createElement(
-	          'h1',
-	          null,
-	          'This is Account'
-	        )
+	        xhtml
 	      );
 	    }
 	  }]);
@@ -28860,7 +28869,9 @@
 	  return Account;
 	}(_react2.default.Component);
 
-	module.exports = Account;
+	module.exports = (0, _reactRedux.connect)(function (state) {
+	  return { username: state.username };
+	})(Account);
 
 /***/ },
 /* 272 */
