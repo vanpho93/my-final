@@ -1,6 +1,6 @@
 import React from 'react';
 
-class List extends React.Component{
+class HomePage extends React.Component{
   render(){
     return (
       <div>
@@ -10,4 +10,4 @@ class List extends React.Component{
   }
 }
 
-module.exports = List;
+module.exports = HomePage;
